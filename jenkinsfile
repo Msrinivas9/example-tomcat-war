@@ -30,7 +30,7 @@ pipeline {
         }
         
                     stage('deployment') {
-                        agent {label 'slave'}
+                        agent {label 'slave_tomcat'}
             steps {
             sh'''
             pwd
