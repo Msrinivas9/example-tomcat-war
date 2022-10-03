@@ -19,7 +19,7 @@ pipeline {
           "files": [
             {
               "pattern": "**/SimpleTomcatWebApp.war",
-              "target": "project/"
+              "target": "tomcat_project/"
             }
          ]
     }''',
