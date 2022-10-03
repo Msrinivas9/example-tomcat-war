@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'slave'}
+    agent {label 'slave_tomcat'}
     stages {
         stage("code quality"){
             agent { docker 'maven:3-alpine' } 
@@ -23,7 +23,7 @@ pipeline {
             }
          ]
     }''',
-    buildName: 'project',
+    buildName: 'tomcat_project',
     buildNumber: '1'
 )
             }
@@ -38,7 +38,7 @@ pipeline {
             echo "files inside target"
             ls target/
             #cp SimpleTomcatWebApp.war /Library/Tomcat/webapps
-            curl -uadmin:AP36gKjKTfxcpGD9nfsEacWWdjX -O "http://52.207.240.184:8081/artifactory/project/SimpleTomcatWebApp.war"
+            curl -uadmin:AP9W2xVgBbLe5TrMWBiwdR83bMj -O "http://3.88.12.161:8081/artifactory/tomcat_project/<TARGET_FILE_PATH>"
             echo "webapps items"
             ls /opt/tomcat/webapps
             cp target/SimpleTomcatWebApp.war /opt/tomcat/webapps/SimpleTomcatWebApp.war
